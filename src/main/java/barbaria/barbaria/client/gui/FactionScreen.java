@@ -35,7 +35,8 @@ public class FactionScreen extends Screen {
 
         /* Create a faction button */
         this.addButton(new Button(this.width / 4, this.height - 140, this.width / 2, 20, new TranslationTextComponent("gui.barbaria.create_faction_button").getUnformattedComponentText(), (context) -> {
-            this.minecraft.displayGuiScreen(null);
+            minecraft.displayGuiScreen(null);
+            minecraft.displayGuiScreen(new CreateFactionScreen());
         }));
 
         /* List all factions button */
@@ -47,28 +48,6 @@ public class FactionScreen extends Screen {
         this.addButton(new Button(this.width / 4, this.height - 40, this.width / 2, 20, new TranslationTextComponent("gui.barbaria.done_button").getUnformattedComponentText(), (context) -> {
             this.minecraft.displayGuiScreen(null);
         }));
-    }
-
-    @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int mouseButton) {
-        if (mouseButton == GLFW.GLFW_MOUSE_BUTTON_LEFT) {
-            switch (getButtonName((int) mouseX, (int) mouseY)) {
-                case "":
-                    return true;
-                case "create_faction":
-                    minecraft.displayGuiScreen(null);
-                    minecraft.displayGuiScreen(new CreateFactionScreen());
-                    return true;
-                case "join_faction":
-                    return true;
-                case "list_factions":
-                    return true;
-                case "done":
-                    minecraft.displayGuiScreen(null);
-                    return true;
-            }
-        }
-        return false;
     }
 
     @Override
@@ -86,29 +65,5 @@ public class FactionScreen extends Screen {
         if (!this.minecraft.player.isAlive()) {
             this.minecraft.player.closeScreen();
         }
-    }
-
-    private String getButtonName(int x, int y) {
-        if (x < (this.width / 4) || x > ((this.width / 4) * 3)) {
-            return "";
-        }
-        /* Check Done button */
-        if ((y >= (this.height - 40) && y <= (this.height - 20))) {
-            return "done";
-        }
-        /* Check List button*/
-        if ((y >=  (this.height - 100) && y <= (this.height - 80))) {
-            return "list_factions";
-        }
-        /* Check Create button*/
-        if ((y >= (this.height - 140) && y <= (this.height - 120))) {
-            return "create_faction";
-        }
-
-        /* Check Join button*/
-        if ((y >= (this.height - 180) && y <= (this.height - 160))) {
-            return "join_faction";
-        }
-        return "";
     }
 }

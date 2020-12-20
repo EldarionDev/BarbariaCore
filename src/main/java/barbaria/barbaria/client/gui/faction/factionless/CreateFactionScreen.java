@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.gui.widget.button.Button;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
 public class CreateFactionScreen extends Screen {
@@ -31,6 +32,7 @@ public class CreateFactionScreen extends Screen {
         /* Confirmation button */
         this.addButton(new Button(this.width / 4, this.height - (this.height - 80), this.width / 4 - 5, 20, new TranslationTextComponent("gui.barbaria.done_button").getUnformattedComponentText(), (context) -> {
             this.minecraft.displayGuiScreen(null);
+            Minecraft.getInstance().player.sendMessage(new StringTextComponent("Created faction: " + nameField.getText()));
         }));
 
         /* Cancel button */
