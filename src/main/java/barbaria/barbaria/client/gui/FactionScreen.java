@@ -1,6 +1,7 @@
 package barbaria.barbaria.client.gui;
 
 import barbaria.barbaria.Barbaria;
+import barbaria.barbaria.client.gui.faction.factionless.CreateFactionScreen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.MinecraftGame;
@@ -18,7 +19,6 @@ import java.awt.*;
 
 @OnlyIn(Dist.CLIENT)
 public class FactionScreen extends Screen {
-    private static final ResourceLocation BACKGROUND = new ResourceLocation(Barbaria.MOD_ID, "textures/gui/faction_screen.png");
 
     public FactionScreen() {
         super(new TranslationTextComponent("screen.barbaria.faction"));
@@ -56,6 +56,8 @@ public class FactionScreen extends Screen {
                 case "":
                     return true;
                 case "create_faction":
+                    minecraft.displayGuiScreen(null);
+                    minecraft.displayGuiScreen(new CreateFactionScreen());
                     return true;
                 case "join_faction":
                     return true;
