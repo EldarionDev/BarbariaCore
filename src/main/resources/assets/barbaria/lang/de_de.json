@@ -1,4 +1,9 @@
 {
   "keys.barbaria.category": "Barbaria Kategorie",
-  "keys.barbaria.open_faction_menu": "Öffne das Fraktionsmenü"
+  "keys.barbaria.open_faction_menu": "Öffne das Fraktionsmenü",
+  "screen.barbaria.faction": "Fraktionsmenü",
+  "gui.barbaria.done_button": "Fertig",
+  "gui.barbaria.list_factions_button": "Zeige alle Fraktionen an",
+  "gui.barbaria.create_faction_button": "Erstelle eine neue Fraktion",
+  "gui.barbaria.join_faction_button": "Trete einer existierenden Fraktion bei"
 }

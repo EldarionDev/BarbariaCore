@@ -20,8 +20,9 @@ import org.apache.logging.log4j.Logger;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod("barbaria")
+@Mod(Barbaria.MOD_ID)
 public class Barbaria {
+    public static final String MOD_ID = "barbaria";
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();

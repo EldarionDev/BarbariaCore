@@ -1,4 +1,9 @@
 {
   "keys.barbaria.category": "Barbaria Category",
-  "keys.barbaria.open_faction_menu": "Open the faction menu"
+  "keys.barbaria.open_faction_menu": "Open the faction menu",
+  "screen.barbaria.faction": "Faction Menu",
+  "gui.barbaria.done_button": "Done",
+  "gui.barbaria.list_factions_button": "List all factions",
+  "gui.barbaria.create_faction_button": "Create a new faction",
+  "gui.barbaria.join_faction_button": "Join a faction"
 }
