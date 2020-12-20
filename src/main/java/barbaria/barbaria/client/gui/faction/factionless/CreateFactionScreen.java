@@ -24,7 +24,7 @@ public class CreateFactionScreen extends Screen {
         this.nameField.setTextColor(200);
         this.nameField.setEnableBackgroundDrawing(true);
         this.nameField.setMaxStringLength(30);
-        this.nameField.setText("Name your faction");
+        this.nameField.setText(new TranslationTextComponent("gui.barbaria.name_faction_button").getUnformattedComponentText());
         this.children.add(nameField);
         this.setFocused(nameField);
 

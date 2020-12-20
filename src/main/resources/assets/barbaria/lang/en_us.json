@@ -7,5 +7,6 @@
   "gui.barbaria.cancel_button": "Cancel",
   "gui.barbaria.list_factions_button": "List all factions",
   "gui.barbaria.create_faction_button": "Create a new faction",
-  "gui.barbaria.join_faction_button": "Join a faction"
+  "gui.barbaria.join_faction_button": "Join a faction",
+  "gui.barbaria.name_faction_button": "Name your faction"
 }
