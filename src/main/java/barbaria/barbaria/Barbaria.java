@@ -1,8 +1,10 @@
 package barbaria.barbaria;
 
 import barbaria.barbaria.client.core.ModKeys;
+import barbaria.barbaria.core.events.EventRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,6 +28,7 @@ public class Barbaria {
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
+    private static EventRegistry eventRegistry = null;
 
     public Barbaria() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -39,6 +42,7 @@ public class Barbaria {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onServerStopping);
 
         MinecraftForge.EVENT_BUS.register(this);
+        eventRegistry = new EventRegistry();
     }
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -61,7 +65,7 @@ public class Barbaria {
 
     /* Physical server */
     private void doDedicatedServerStuff(final FMLDedicatedServerSetupEvent event) {
-
+        event.getServerSupplier().get().sendMessage(new StringTextComponent("Starting Dedicated server."));
     }
 
     /* Logical server */
