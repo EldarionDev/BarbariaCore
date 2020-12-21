@@ -1,7 +1,9 @@
 package barbaria.barbaria.world;
 
 import barbaria.barbaria.factions.Faction;
+import barbaria.barbaria.factions.FactionsContainer;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.ListNBT;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.storage.WorldSavedData;
@@ -29,7 +31,13 @@ public class FactionWorldData extends WorldSavedData {
 
     @Override
     public CompoundNBT write(CompoundNBT compound) {
-
-        return null;
+        ListNBT completeData = new ListNBT();
+        for (String s : FactionsContainer.getFactionNames()) {
+            CompoundNBT tag = new CompoundNBT();
+            tag.putString(s, FactionsContainer.getFactionAsJsonString(s));
+            completeData.add(tag);
+        }
+        compound.put("factions", completeData);
+        return compound;
     }
 }

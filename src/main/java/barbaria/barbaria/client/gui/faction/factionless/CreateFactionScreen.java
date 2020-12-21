@@ -1,5 +1,6 @@
 package barbaria.barbaria.client.gui.faction.factionless;
 
+import barbaria.barbaria.factions.FactionsContainer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.TextFieldWidget;
@@ -32,6 +33,7 @@ public class CreateFactionScreen extends Screen {
         /* Confirmation button */
         this.addButton(new Button(this.width / 4, this.height - (this.height - 80), this.width / 4 - 5, 20, new TranslationTextComponent("gui.barbaria.done_button").getUnformattedComponentText(), (context) -> {
             this.minecraft.displayGuiScreen(null);
+            FactionsContainer.createFaction(nameField.getText());
             Minecraft.getInstance().player.sendMessage(new StringTextComponent("Created faction: " + nameField.getText()));
         }));
 
